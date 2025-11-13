@@ -48,6 +48,12 @@ function update() {
     //     "D:", input.isDown("D")
     // );
 
+    if(player.x > canvas.width || player.x < 0){
+        player.x = 0   
+    }
+    else if(player.y > canvas.height || player.y < 0){
+        player.y = 0
+    }
 
     player.update();
     for(let i = coins.length - 1; i>=0; i--){
