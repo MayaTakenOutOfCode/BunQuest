@@ -26,7 +26,7 @@ export class ScoreManager{
     draw(ctx, x = 10, y = 30, color = "black", font = "20px Arial") {
         ctx.fillStyle = color;
         ctx.font = font;
-        ctx.fillText("Score: " + this.score, x, y);
+        ctx.fillText("Collected Score: " + this.score, x, y);
     }
 
 }
