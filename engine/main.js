@@ -5,6 +5,7 @@ import { Coin } from "./Coin.js";
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const VELOCITY =1.8;
 
 const input = new InputManager();
 
@@ -33,12 +34,12 @@ function update() {
     player.vy = 0;
 
     // Horizontal
-    if (input.isDown("ArrowRight") || input.isDown("KeyD")) player.vx = 2;
-    if (input.isDown("ArrowLeft") || input.isDown("KeyA")) player.vx = -2;
+    if (input.isDown("ArrowRight") || input.isDown("KeyD")) player.vx = 2*VELOCITY;
+    if (input.isDown("ArrowLeft") || input.isDown("KeyA")) player.vx = -2*VELOCITY;
 
     // Vertical
-    if (input.isDown("ArrowUp") || input.isDown("KeyW")) player.vy = -2;
-    if (input.isDown("ArrowDown") || input.isDown("KeyS")) player.vy = 2;
+    if (input.isDown("ArrowUp") || input.isDown("KeyW")) player.vy = -2*VELOCITY;
+    if (input.isDown("ArrowDown") || input.isDown("KeyS")) player.vy = 2*VELOCITY;
 
     // console.log(
     //     "Left:", input.isDown("ArrowLeft"),
