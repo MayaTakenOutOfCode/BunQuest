@@ -2,6 +2,7 @@ import { GameObject } from "./GameObject.js";
 import { InputManager } from "./InputManager.js";
 import { ScoreManager } from "./ScoreManager.js";
 import { Coin } from "./Coin.js";
+import { SceneManager } from "./SceneManager.js";
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
@@ -13,14 +14,18 @@ const objects = [];
 const player = new GameObject(100, 100, 50, 50, "red");
 objects.push(player);
 
+const sceneManager = new SceneManager();
+
 const score = new ScoreManager();
 
 score.onScoreChange = s => console.log("Score is now: " + s);
-
+//const scene1 = new ExampleScene(canvas);
 
 // Settings:
 const COIN_COUNT = 10;
 const COIN_RADIUS = 15;
+
+//sceneManager.setScene(scene1)
 
 const coins = Array.from({ length: COIN_COUNT }, () => {
     const x = Math.random() * (canvas.width - COIN_RADIUS * 2) + COIN_RADIUS;
@@ -75,6 +80,8 @@ function render() {
 
 function loop(timestamp) {
     update();
+    // sceneManager.update();
+    // sceneManager.render(ctx);
     render();
     requestAnimationFrame(loop);
 }
